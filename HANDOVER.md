@@ -15,5 +15,5 @@
 - Kortet har GUI-editor og bruger dashboardets tema-variabler.
 - Browservalidering: version 0.2.4 blev hentet live. I dag, I morgen og Uge målte alle 329 px på mobil med `scrollHeight == clientHeight`; Uge viste fem dagknapper i stedet for statistikrækken.
 - Preview: `docs/preview.png` er genereret fra den faktiske HA-rendering og indeholder ingen personnavne, adresse eller personbilleder.
-- Git: 0.2.3-commit udfyldes efter commit/push; tidligere commits er pushed.
+- Git: `79f5ac3 Compact forecast day navigation` er pushed til `MRDonnii/ha-electricity-price-card` på `main`.
 - Åbent punkt: Ingen kendte fejl.
