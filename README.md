@@ -1,0 +1,16 @@
+# HA Electricity Price Card
+
+Et samlet, responsivt Home Assistant-kort til elpriser fra enten Strømligning eller Energi Data Service.
+
+Kortet viser aktuel pris, dagens minimum/gennemsnit/maksimum, 24 interaktive timesøjler, officielle morgendagspriser og fler-dages forecast med dagsskift.
+
+```yaml
+type: custom:ha-electricity-price-card
+source: auto
+stromligning_current: sensor.stromligning_current_price_vat
+stromligning_tomorrow: binary_sensor.stromligning_tomorrow_available_vat
+stromligning_forecast: sensor.stromligning_forecasts_vat
+energidataservice: sensor.energi_data_service
+```
+
+`source` kan være `auto`, `stromligning` eller `energidataservice`. I automatisk tilstand foretrækkes Strømligning, hvis den har gyldige prisdata; ellers bruges Energi Data Service.
