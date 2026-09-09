@@ -1,9 +1,9 @@
 # Handover
 
-- Version: `0.2.5`
+- Version: `0.2.6`
 - Live dashboard: `/hjem-overblik/hyacintvej`, tidligere prisblok på kortindeks 5
 - Installeret sti: `/mnt/ha-config/www/ha-electricity-price-card`
-- Resource: `/local/ha-electricity-price-card/ha-electricity-price-card.js?v=0.2.5`
+- Resource: `/local/ha-electricity-price-card/ha-electricity-price-card.js?v=0.2.6`
 - Backups: `/mnt/ha-config/_archive/backups/lovelace/hyacintvej-electricity-price-20260909-175500` og `/mnt/ha-config/_archive/backups/lovelace/ha-electricity-price-card-20260909-184500`
 - Den gamle 87 KB blok med tre `local-conditional-card`/`button-card`-varianter er erstattet af ét `custom:ha-electricity-price-card`.
 - Kortet understøtter automatisk valg samt tvunget valg af Strømligning eller Energi Data Service.
@@ -12,9 +12,10 @@
 - Version 0.2.3 bruger igen originalens præcise statistikskala via `--dashboard-success`, `--yellow`, `--dashboard-warning` og `--dashboard-danger`. Mobilgrafens søjleafstand er øget fra 2 til 5 px, og den faste mobilhøjde er reduceret fra 389 til 369 px.
 - Version 0.2.4 lader uge-dagsvælgeren erstatte hele dato/statistikrækken. Lav/snit/høj vises derfor kun i I dag og I morgen. Den faste mobilhøjde er reduceret yderligere til 329 px uden højdeskift.
 - Version 0.2.5 giver statistikrækken og ugedagsrækken samme faste højde. Statistikboblerne er 32 px, kortet er 342 px på mobil i alle faner, og grafens lav/høj-markører er flyttet ned, så de ikke overlapper statistikken.
+- Version 0.2.6 flytter hele grafområdet 10 px ned på mobil og 8 px på desktop, så den ledige bundplads udnyttes uden at ændre kortets faste højde.
 - Strømligning og Energi Data Service er begge testet med live entities. Ingen fysiske handlinger udføres af kortet.
 - Kortet har GUI-editor og bruger dashboardets tema-variabler.
 - Browservalidering: version 0.2.5 blev hentet live. I dag, I morgen og Uge målte alle 342 px på mobil med `scrollHeight == clientHeight`. Uge skjulte statistikrækken, viste fem dagknapper og brugte samme rækkeplacering. Grafmarkører fik mobilposition `top: -24px`.
 - Preview: `docs/preview.png` er genereret fra den faktiske HA-rendering og indeholder ingen personnavne, adresse eller personbilleder.
-- Git: 0.2.5-commit udfyldes efter commit/push.
+- Git: 0.2.6-commit udfyldes efter commit/push.
 - Åbent punkt: Ingen kendte fejl.

@@ -1,4 +1,4 @@
-const VERSION = "0.2.5";
+const VERSION = "0.2.6";
 
 class HAElectricityPriceCardEditor extends HTMLElement {
   setConfig(config) {
@@ -297,6 +297,9 @@ class HAElectricityPriceCard extends HTMLElement {
     this.shadowRoot.querySelectorAll(".bar-wrap em").forEach((marker) => {
       marker.style.top = compactMobile ? "-24px" : "-28px";
     });
+    this.shadowRoot.querySelector(".chart").style.transform = compactMobile
+      ? "translateY(10px)"
+      : "translateY(8px)";
     this.shadowRoot.querySelectorAll("[data-tab]").forEach(
       (button) =>
         (button.onclick = () => {
