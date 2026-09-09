@@ -18,5 +18,5 @@
 - Kortet har GUI-editor og bruger dashboardets tema-variabler.
 - Browservalidering: version 0.2.5 blev hentet live. I dag, I morgen og Uge målte alle 342 px på mobil med `scrollHeight == clientHeight`. Uge skjulte statistikrækken, viste fem dagknapper og brugte samme rækkeplacering. Grafmarkører fik mobilposition `top: -24px`.
 - Preview: `docs/preview.png` er genereret fra den faktiske HA-rendering og indeholder ingen personnavne, adresse eller personbilleder.
-- Git: 0.2.7-commit udfyldes efter commit/push.
+- Git: `0489580 Guard graph layout during startup` er pushed til `MRDonnii/ha-electricity-price-card` på `main`.
 - Åbent punkt: Ingen kendte fejl.
