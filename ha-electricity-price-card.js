@@ -1,4 +1,4 @@
-const VERSION = "0.2.8";
+const VERSION = "0.2.9";
 
 class HAElectricityPriceCardEditor extends HTMLElement {
   setConfig(config) {
@@ -281,6 +281,8 @@ class HAElectricityPriceCard extends HTMLElement {
     const compactMobile = window.matchMedia("(max-width: 600px)").matches;
     const card = this.shadowRoot.querySelector("ha-card");
     const weekSlot = this.shadowRoot.querySelector(".week-slot");
+    card.style.border = "none";
+    card.style.borderLeft = "4px solid var(--accent)";
     card.style.height = compactMobile ? "342px" : "350px";
     if (this._tab === "forecast") {
       this.shadowRoot.querySelector(".summary").style.display = "none";
