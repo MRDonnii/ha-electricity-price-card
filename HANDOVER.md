@@ -1,9 +1,9 @@
 # Handover
 
-- Version: `0.2.7`
+- Version: `0.2.8`
 - Live dashboard: `/hjem-overblik/hyacintvej`, tidligere prisblok på kortindeks 5
 - Installeret sti: `/mnt/ha-config/www/ha-electricity-price-card`
-- Resource: `/local/ha-electricity-price-card/ha-electricity-price-card.js?v=0.2.7`
+- Resource: `/local/ha-electricity-price-card/ha-electricity-price-card.js?v=0.2.8`
 - Backups: `/mnt/ha-config/_archive/backups/lovelace/hyacintvej-electricity-price-20260909-175500` og `/mnt/ha-config/_archive/backups/lovelace/ha-electricity-price-card-20260909-184500`
 - Den gamle 87 KB blok med tre `local-conditional-card`/`button-card`-varianter er erstattet af ét `custom:ha-electricity-price-card`.
 - Kortet understøtter automatisk valg samt tvunget valg af Strømligning eller Energi Data Service.
@@ -14,6 +14,7 @@
 - Version 0.2.5 giver statistikrækken og ugedagsrækken samme faste højde. Statistikboblerne er 32 px, kortet er 342 px på mobil i alle faner, og grafens lav/høj-markører er flyttet ned, så de ikke overlapper statistikken.
 - Version 0.2.6 flytter hele grafområdet 10 px ned på mobil og 8 px på desktop, så den ledige bundplads udnyttes uden at ændre kortets faste højde.
 - Version 0.2.7 retter en opstartsfejl, hvor grafens layout blev anvendt, før `.chart` fandtes under indlæsning af sensordata.
+- Version 0.2.8 centrerer label og pris lodret/vandret i statistikboblerne med 2 px indbyrdes afstand.
 - Strømligning og Energi Data Service er begge testet med live entities. Ingen fysiske handlinger udføres af kortet.
 - Kortet har GUI-editor og bruger dashboardets tema-variabler.
 - Browservalidering: version 0.2.5 blev hentet live. I dag, I morgen og Uge målte alle 342 px på mobil med `scrollHeight == clientHeight`. Uge skjulte statistikrækken, viste fem dagknapper og brugte samme rækkeplacering. Grafmarkører fik mobilposition `top: -24px`.

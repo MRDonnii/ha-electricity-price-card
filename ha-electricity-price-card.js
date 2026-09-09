@@ -1,4 +1,4 @@
-const VERSION = "0.2.7";
+const VERSION = "0.2.8";
 
 class HAElectricityPriceCardEditor extends HTMLElement {
   setConfig(config) {
@@ -292,6 +292,13 @@ class HAElectricityPriceCard extends HTMLElement {
       summary.style.height = compactMobile ? "40px" : "43px";
       this.shadowRoot.querySelectorAll(".stat").forEach((stat) => {
         stat.style.height = "32px";
+        stat.style.display = "flex";
+        stat.style.flexDirection = "column";
+        stat.style.alignItems = "center";
+        stat.style.justifyContent = "center";
+        stat.style.gap = "2px";
+        stat.style.padding = "3px 6px";
+        stat.style.lineHeight = "1";
       });
     }
     this.shadowRoot.querySelectorAll(".bar-wrap em").forEach((marker) => {
