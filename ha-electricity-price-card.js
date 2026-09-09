@@ -1,4 +1,4 @@
-const VERSION = "0.2.4";
+const VERSION = "0.2.5";
 
 class HAElectricityPriceCardEditor extends HTMLElement {
   setConfig(config) {
@@ -281,14 +281,22 @@ class HAElectricityPriceCard extends HTMLElement {
     const compactMobile = window.matchMedia("(max-width: 600px)").matches;
     const card = this.shadowRoot.querySelector("ha-card");
     const weekSlot = this.shadowRoot.querySelector(".week-slot");
-    card.style.height = compactMobile ? "329px" : "339px";
+    card.style.height = compactMobile ? "342px" : "350px";
     if (this._tab === "forecast") {
       this.shadowRoot.querySelector(".summary").style.display = "none";
       weekSlot.style.height = compactMobile ? "40px" : "43px";
-      weekSlot.style.marginBottom = compactMobile ? "5px" : "7px";
+      weekSlot.style.marginBottom = "0";
     } else {
       weekSlot.style.display = "none";
+      const summary = this.shadowRoot.querySelector(".summary");
+      summary.style.height = compactMobile ? "40px" : "43px";
+      this.shadowRoot.querySelectorAll(".stat").forEach((stat) => {
+        stat.style.height = "32px";
+      });
     }
+    this.shadowRoot.querySelectorAll(".bar-wrap em").forEach((marker) => {
+      marker.style.top = compactMobile ? "-24px" : "-28px";
+    });
     this.shadowRoot.querySelectorAll("[data-tab]").forEach(
       (button) =>
         (button.onclick = () => {
