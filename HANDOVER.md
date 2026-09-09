@@ -10,3 +10,5 @@
 - I dag, i morgen, forecast, aktuel pris, min/snit/max, 24 timesøjler, tooltip og navigation mellem forecastdage er bevaret i den samlede komponent.
 - Strømligning og Energi Data Service er begge testet med live entities. Ingen fysiske handlinger udføres af kortet.
 - Kortet har GUI-editor og bruger dashboardets tema-variabler.
+- Git: `a6fb343 Add unified electricity price card` er pushed til `MRDonnii/ha-electricity-price-card` på `main`.
+- Åbent punkt: Puppet screenshot-appen var stoppet; browserbaseret rendering blev valideret, men et nyt `docs/preview.png` mangler fortsat.
