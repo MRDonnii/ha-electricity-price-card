@@ -11,7 +11,7 @@
 - Version 0.2.2 genskaber de oprindelige 62 px fanekort med titel, undertitel, venstre accent og baggrundsikon. Den valgte fane vises alene med accentfarve; tekstbadgen er fjernet. Hver forecastdag har desuden sin egen ugedags- og datoknap.
 - Strømligning og Energi Data Service er begge testet med live entities. Ingen fysiske handlinger udføres af kortet.
 - Kortet har GUI-editor og bruger dashboardets tema-variabler.
-- Browservalidering: version 0.2.1 blev hentet live; fem ugedagsknapper blev vist, og mobilrenderingen målte 389 px for alle tre faner med `scrollHeight == clientHeight`. Ugefanen ændrer derfor ikke kortets højde og giver intet internt overflow.
+- Browservalidering: version 0.2.2 blev hentet live. I dag, I morgen og Uge målte alle 405 px med `scrollHeight == clientHeight`; Uge viste fem dagknapper. Ingen AKTIV-tekstbadge findes længere. Lav/snit/høj er bevidst bevaret for den valgte forecastdag.
 - Preview: `docs/preview.png` er genereret fra den faktiske HA-rendering og indeholder ingen personnavne, adresse eller personbilleder.
-- Git: udfyldes med 0.2.0-commit efter commit/push.
+- Git: `cd89f23 Restore original price tab design` og `ff56a3b Simplify active tab highlight`; begge er pushed til `MRDonnii/ha-electricity-price-card` på `main`.
 - Åbent punkt: Ingen kendte fejl.
