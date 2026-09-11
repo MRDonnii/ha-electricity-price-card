@@ -1,4 +1,4 @@
-const VERSION = "0.3.5";
+const VERSION = "0.4.0";
 
 class HAElectricityPriceCardEditor extends HTMLElement {
   setConfig(config) {
@@ -26,7 +26,8 @@ class HAElectricityPriceCardEditor extends HTMLElement {
       <div class="row"><label>Strømligning pris</label><input data-key="stromligning_current"></div>
       <div class="row"><label>Strømligning i morgen</label><input data-key="stromligning_tomorrow"></div>
       <div class="row"><label>Strømligning forecast</label><input data-key="stromligning_forecast"></div>
-      <div class="row"><label>Energi Data Service</label><input data-key="energidataservice"></div>`;
+      <div class="row"><label>Energi Data Service</label><input data-key="energidataservice"></div>
+      <div class="row"><label>Desktophøjde (px)</label><input data-key="desktop_height" type="number" min="350" max="560" step="10"></div>`;
     this.querySelectorAll("select,input").forEach((el) => {
       el.value =
         this._config[el.dataset.key] ||
@@ -53,6 +54,7 @@ class HAElectricityPriceCard extends HTMLElement {
       stromligning_tomorrow:
         "binary_sensor.stromligning_tomorrow_available_vat",
       stromligning_forecast: "sensor.stromligning_forecasts_vat",
+      desktop_height: 350,
     };
   }
   static getConfigElement() {
@@ -281,7 +283,9 @@ class HAElectricityPriceCard extends HTMLElement {
     const compactMobile = window.matchMedia("(max-width: 600px)").matches;
     const card = this.shadowRoot.querySelector("ha-card");
     const weekSlot = this.shadowRoot.querySelector(".week-slot");
-    card.style.height = compactMobile ? "342px" : "350px";
+    const desktopHeight = Math.min(560, Math.max(350, Number(this._config.desktop_height) || 350));
+    const extraHeight = compactMobile ? 0 : desktopHeight - 350;
+    card.style.height = compactMobile ? "342px" : `${desktopHeight}px`;
     if (this._tab === "forecast") {
       this.shadowRoot.querySelector(".summary").style.display = "none";
       weekSlot.style.height = compactMobile ? "40px" : "43px";
@@ -306,6 +310,13 @@ class HAElectricityPriceCard extends HTMLElement {
     });
     const chart = this.shadowRoot.querySelector(".chart");
     if (chart) {
+      if (!compactMobile && extraHeight) {
+        chart.style.height = `${151 + extraHeight}px`;
+        chart.style.paddingTop = `${34 + Math.round(extraHeight * 0.28)}px`;
+        this.shadowRoot.querySelectorAll(".bar-wrap").forEach((bar) => {
+          bar.style.height = `${116 + Math.round(extraHeight * 0.72)}px`;
+        });
+      }
       chart.style.transform = compactMobile
         ? "translateY(10px)"
         : "translateY(8px)";

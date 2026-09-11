@@ -1,5 +1,14 @@
 # Handover
 
+- Version: `0.4.0`
+- Ny GUI-indstilling `desktop_height` (350–560 px) gør kun desktopgrafen
+  højere; mobilens faste højde og layout er uændret. Graf- og søjlehøjde
+  udvides proportionalt i stedet for at efterlade tom bundplads.
+- Forsidens desktopforekomst bruger 430 px for at flugte bedre med det nye
+  husoverblik. Installeret resource:
+  `/local/ha-electricity-price-card/ha-electricity-price-card.js?v=0.4.0`.
+- Backup: `/mnt/ha-config/_archive/backups/lovelace/home-summary-temperature-price-height-20260911-170500`.
+
 - Version: `0.3.0`
 - Live dashboard: `/hjem-overblik/hyacintvej`, tidligere prisblok på kortindeks 5
 - Installeret sti: `/mnt/ha-config/www/ha-electricity-price-card`

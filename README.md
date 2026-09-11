@@ -1,5 +1,9 @@
 # HA Electricity Price Card
 
+`desktop_height` kan bruges til at gøre grafen højere på store skærme uden at
+ændre den faste, kompakte mobilhøjde. Værdien kan sættes i GUI-editoren mellem
+350 og 560 px.
+
 Et samlet, responsivt Home Assistant-kort til elpriser fra enten Strømligning eller Energi Data Service.
 
 Kortet viser aktuel pris, dagens minimum/gennemsnit/maksimum, 24 interaktive timesøjler, officielle morgendagspriser og fler-dages forecast. Ugefanen har direkte valg af hver ugedag med dato samt forrige/næste-navigation.
