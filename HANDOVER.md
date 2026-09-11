@@ -1,5 +1,14 @@
 # Handover
 
+- Version: `0.5.0`
+- Ny GUI-toggle `fill_height` lader desktopkortet udfylde den resterende højde
+  fra det fælles PC-layout. Selve grafen og søjlerne vokser med kortet; mobil
+  ignorerer indstillingen og beholder 342 px.
+- Forsidens desktopforekomst bruger `fill_height: true` inde i
+  `custom:ha-home-desktop-layout-card`.
+- Installeret resource: `/local/ha-electricity-price-card/ha-electricity-price-card.js?v=0.5.0`.
+- Backup: `/mnt/ha-config/_archive/backups/lovelace/home-balanced-desktop-all-rooms-20260911-172000`.
+
 - Version: `0.4.0`
 - Ny GUI-indstilling `desktop_height` (350–560 px) gør kun desktopgrafen
   højere; mobilens faste højde og layout er uændret. Graf- og søjlehøjde

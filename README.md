@@ -4,6 +4,9 @@
 ændre den faste, kompakte mobilhøjde. Værdien kan sættes i GUI-editoren mellem
 350 og 560 px.
 
+`fill_height` lader kortet udfylde den resterende højde i et balanceret
+desktop-layout. Indstillingen ignoreres på mobil.
+
 Et samlet, responsivt Home Assistant-kort til elpriser fra enten Strømligning eller Energi Data Service.
 
 Kortet viser aktuel pris, dagens minimum/gennemsnit/maksimum, 24 interaktive timesøjler, officielle morgendagspriser og fler-dages forecast. Ugefanen har direkte valg af hver ugedag med dato samt forrige/næste-navigation.
