@@ -1,5 +1,10 @@
 # Handover
 
+- Version `0.5.1` lader `fill_height`-grafen krympe på korte PC-viewports:
+  kortets minimumshøjde reduceres fra 350 til 250 px og grafens fra 151 til
+  82 px ved højst 950 CSS-pixels. Mobilens faste højde er uændret.
+- Installeret resource: `/local/ha-electricity-price-card/ha-electricity-price-card.js?v=0.5.1`.
+
 - Version: `0.5.0`
 - Ny GUI-toggle `fill_height` lader desktopkortet udfylde den resterende højde
   fra det fælles PC-layout. Selve grafen og søjlerne vokser med kortet; mobil
