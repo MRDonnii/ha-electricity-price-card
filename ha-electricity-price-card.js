@@ -1,4 +1,4 @@
-const VERSION = "0.4.0";
+const VERSION = "0.5.0";
 
 class HAElectricityPriceCardEditor extends HTMLElement {
   setConfig(config) {
@@ -27,12 +27,12 @@ class HAElectricityPriceCardEditor extends HTMLElement {
       <div class="row"><label>Strømligning i morgen</label><input data-key="stromligning_tomorrow"></div>
       <div class="row"><label>Strømligning forecast</label><input data-key="stromligning_forecast"></div>
       <div class="row"><label>Energi Data Service</label><input data-key="energidataservice"></div>
-      <div class="row"><label>Desktophøjde (px)</label><input data-key="desktop_height" type="number" min="350" max="560" step="10"></div>`;
+      <div class="row"><label>Desktophøjde (px)</label><input data-key="desktop_height" type="number" min="350" max="560" step="10"></div>
+      <div class="row"><label>Udfyld tilgængelig højde</label><input data-key="fill_height" type="checkbox"></div>`;
     this.querySelectorAll("select,input").forEach((el) => {
-      el.value =
-        this._config[el.dataset.key] ||
-        (el.dataset.key === "source" ? "auto" : "");
-      el.onchange = () => this._change(el.dataset.key, el.value);
+      if (el.type === "checkbox") el.checked = Boolean(this._config[el.dataset.key]);
+      else el.value = this._config[el.dataset.key] || (el.dataset.key === "source" ? "auto" : "");
+      el.onchange = () => this._change(el.dataset.key, el.type === "checkbox" ? el.checked : el.value);
     });
   }
 }
@@ -55,6 +55,7 @@ class HAElectricityPriceCard extends HTMLElement {
         "binary_sensor.stromligning_tomorrow_available_vat",
       stromligning_forecast: "sensor.stromligning_forecasts_vat",
       desktop_height: 350,
+      fill_height: false,
     };
   }
   static getConfigElement() {
@@ -283,9 +284,12 @@ class HAElectricityPriceCard extends HTMLElement {
     const compactMobile = window.matchMedia("(max-width: 600px)").matches;
     const card = this.shadowRoot.querySelector("ha-card");
     const weekSlot = this.shadowRoot.querySelector(".week-slot");
+    const fillHeight = !compactMobile && this._config.fill_height === true;
     const desktopHeight = Math.min(560, Math.max(350, Number(this._config.desktop_height) || 350));
     const extraHeight = compactMobile ? 0 : desktopHeight - 350;
-    card.style.height = compactMobile ? "342px" : `${desktopHeight}px`;
+    this.style.height = fillHeight ? "100%" : "";
+    card.style.height = compactMobile ? "342px" : fillHeight ? "100%" : `${desktopHeight}px`;
+    if (fillHeight) { card.style.display = "flex"; card.style.flexDirection = "column"; card.style.minHeight = "350px"; }
     if (this._tab === "forecast") {
       this.shadowRoot.querySelector(".summary").style.display = "none";
       weekSlot.style.height = compactMobile ? "40px" : "43px";
@@ -310,7 +314,10 @@ class HAElectricityPriceCard extends HTMLElement {
     });
     const chart = this.shadowRoot.querySelector(".chart");
     if (chart) {
-      if (!compactMobile && extraHeight) {
+      if (fillHeight) {
+        chart.style.flex = "1"; chart.style.height = "auto"; chart.style.minHeight = "151px";
+        this.shadowRoot.querySelectorAll(".bar-wrap").forEach((bar) => { bar.style.height = "100%"; });
+      } else if (!compactMobile && extraHeight) {
         chart.style.height = `${151 + extraHeight}px`;
         chart.style.paddingTop = `${34 + Math.round(extraHeight * 0.28)}px`;
         this.shadowRoot.querySelectorAll(".bar-wrap").forEach((bar) => {
