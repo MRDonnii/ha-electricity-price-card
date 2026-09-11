@@ -1,4 +1,4 @@
-const VERSION = "0.5.0";
+const VERSION = "0.5.1";
 
 class HAElectricityPriceCardEditor extends HTMLElement {
   setConfig(config) {
@@ -285,11 +285,12 @@ class HAElectricityPriceCard extends HTMLElement {
     const card = this.shadowRoot.querySelector("ha-card");
     const weekSlot = this.shadowRoot.querySelector(".week-slot");
     const fillHeight = !compactMobile && this._config.fill_height === true;
+    const compactDesktop = fillHeight && window.matchMedia("(min-width: 1101px) and (max-height: 950px)").matches;
     const desktopHeight = Math.min(560, Math.max(350, Number(this._config.desktop_height) || 350));
     const extraHeight = compactMobile ? 0 : desktopHeight - 350;
     this.style.height = fillHeight ? "100%" : "";
     card.style.height = compactMobile ? "342px" : fillHeight ? "100%" : `${desktopHeight}px`;
-    if (fillHeight) { card.style.display = "flex"; card.style.flexDirection = "column"; card.style.minHeight = "350px"; }
+    if (fillHeight) { card.style.display = "flex"; card.style.flexDirection = "column"; card.style.minHeight = compactDesktop ? "250px" : "350px"; }
     if (this._tab === "forecast") {
       this.shadowRoot.querySelector(".summary").style.display = "none";
       weekSlot.style.height = compactMobile ? "40px" : "43px";
@@ -315,7 +316,7 @@ class HAElectricityPriceCard extends HTMLElement {
     const chart = this.shadowRoot.querySelector(".chart");
     if (chart) {
       if (fillHeight) {
-        chart.style.flex = "1"; chart.style.height = "auto"; chart.style.minHeight = "151px";
+        chart.style.flex = "1"; chart.style.height = "auto"; chart.style.minHeight = compactDesktop ? "82px" : "151px";
         this.shadowRoot.querySelectorAll(".bar-wrap").forEach((bar) => { bar.style.height = "100%"; });
       } else if (!compactMobile && extraHeight) {
         chart.style.height = `${151 + extraHeight}px`;
